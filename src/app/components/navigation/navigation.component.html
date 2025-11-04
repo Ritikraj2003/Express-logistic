@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <div class="logo-icon">
+        <div class="logo-box"></div>
+        <div class="logo-plane">✈</div>
+      </div>
+      <div class="logo-text">
+        <span class="logo-main">EXPRESS</span>
+        <span class="logo-sub">LOGISTICS SOLUTIONS</span>
+      </div>
+    </div>
+    <div class="nav-right-section">
+      <ul class="nav-menu">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="scrollToTop()">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" (click)="scrollToTop()">About Us</a></li>
+        <li><a routerLink="/services" routerLinkActive="active" (click)="scrollToTop()">Our Services</a></li>
+        <li><a routerLink="/tracking" routerLinkActive="active" (click)="scrollToTop()">Tracking</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="scrollToTop()">Contact Us</a></li>
+      </ul>
+      <a routerLink="/tracking" class="btn-track-header" (click)="scrollToTop()">TRACK SHIPMENT</a>
+    </div>
+  </div>
+</nav>
+

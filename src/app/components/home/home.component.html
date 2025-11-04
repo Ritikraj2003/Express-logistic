@@ -1,0 +1,149 @@
+<div class="home-container">
+  <!-- Hero Section / Slider -->
+  <section class="hero-section">
+    <div *ngFor="let slide of slides; let i = index" 
+         class="slide" 
+         [class.active]="currentSlide === i"
+         [style.background-image]="'url(' + slide.image + ')'">
+      <div class="hero-overlay"></div>
+      <div class="hero-content" *ngIf="slide.showText">
+        <h1>{{ slide.title }}</h1>
+        <p class="hero-description">{{ slide.description }}</p>
+        <div class="hero-buttons">
+          <a routerLink="/about" class="btn-outline">READ MORE</a>
+          <a routerLink="/contact" class="btn-outline">CONTACT US</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-slider-controls">
+      <button class="slider-arrow slider-arrow-left" (click)="prevSlide()">‹</button>
+      <button class="slider-arrow slider-arrow-right" (click)="nextSlide()">›</button>
+    </div>
+    
+    <div class="slider-indicators">
+      <span *ngFor="let slide of slides; let i = index" 
+            class="indicator" 
+            [class.active]="currentSlide === i"
+            (click)="goToSlide(i)"></span>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-us-section" #aboutSection>
+    <div class="about-container">
+      <h2 class="about-title">About Us</h2>
+      <div class="about-content-wrapper">
+        <div class="about-image" [class.animate-in]="isAboutVisible">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800" alt="Express Logistics Solutions">
+        </div>
+        <div class="about-text" [class.animate-in]="isAboutVisible">
+          <h3>Express Logistics Solutions</h3>
+          <p class="about-description">
+            <span class="checkmark">✔</span>
+            "Express Logistics Solutions" As An International Freight Forwarder And Global Providers Of Innovative And Fully Integrated Supply Chain Solutions.
+          </p>
+          <a routerLink="/about" class="btn-read-more">READ MORE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="services-overview" #servicesSection>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card" [class.animate-left]="isServicesVisible">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600" alt="Air Freight">
+        </div>
+        <h3>Air Freight</h3>
+        <p>Avail of our airport-to-airport service which is ideally suited to customers with a high volume of business requiring time-critical delivery. We provide air freight services based on your needs and schedules and even select the most appropriate carrier for your shipment giving you a head start over other air freight forwarding companies.</p>
+      </div>
+      <div class="service-card" [class.animate-bottom]="isServicesVisible">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=600" alt="Sea Freight">
+        </div>
+        <h3>Sea Freight</h3>
+        <p>Our Sea carriers are available to meet the challenges and deadlines of your overseas shipping itinerary, whether it be automobiles or motorcycles shipping for individuals or shows. We can ship FCL (full container load) or LCL (less than container load) shipment anywhere in the world - door to door.</p>
+      </div>
+      <div class="service-card" [class.animate-right]="isServicesVisible">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" alt="Door To Door Freight">
+        </div>
+        <h3>Door To Door Freight</h3>
+        <p>It includes all shipping, handling, import and customs duties, making it a hassle-free option for customers to import goods. This is compared to standard shipping, the price of which typically includes only the expenses incurred by the shipping company in transferring the object from one place to another.</p>
+      </div>
+    </div>
+    <div class="view-more-container">
+      <a routerLink="/services" class="btn-view-more">VIEW MORE</a>
+    </div>
+  </section>
+
+  <!-- Enquiry Form Section -->
+  <section class="enquiry-section">
+    <div class="enquiry-container">
+      <div class="enquiry-header">
+        <h2>ENQUIRY NOW</h2>
+      </div>
+      <div class="enquiry-form-container">
+        <form [formGroup]="enquiryForm" (ngSubmit)="onEnquirySubmit()" class="enquiry-form">
+          <div class="form-row">
+            <div class="form-group">
+              <input 
+                type="text" 
+                formControlName="name" 
+                placeholder="YOUR NAME" 
+                class="form-input"
+              >
+              <span class="input-icon">👤</span>
+            </div>
+            <div class="form-group">
+              <input 
+                type="email" 
+                formControlName="email" 
+                placeholder="YOUR E-MAIL" 
+                class="form-input"
+              >
+              <span class="input-icon">✉</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input 
+                type="tel" 
+                formControlName="phone" 
+                placeholder="YOUR NUMBER*" 
+                class="form-input"
+              >
+              <span class="input-icon">📞</span>
+            </div>
+            <div class="form-group">
+              <input 
+                type="text" 
+                formControlName="subject" 
+                placeholder="YOUR SUBJECT*" 
+                class="form-input"
+              >
+              <span class="input-icon">📄</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <textarea 
+                formControlName="message" 
+                placeholder="YOUR MESSAGE *" 
+                rows="5"
+                class="form-input form-textarea"
+              ></textarea>
+            </div>
+          </div>
+          <div class="submit-container">
+            <button type="submit" class="btn-submit-now">SUBMIT NOW</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+

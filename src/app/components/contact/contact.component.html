@@ -1,0 +1,57 @@
+<div class="contact-container">
+  <div class="contact-header">
+    <h1>Contact Us</h1>
+    <p>Get in touch with us for any inquiries or support</p>
+  </div>
+
+  <div class="contact-content">
+    <div class="contact-info">
+      <h2>Express Logistics Solutions</h2>
+      <div class="info-item">
+        <strong>📍 Address:</strong>
+        <p>Mittal industrial estate Gala no 9/10/25/26<br>
+        Rahul building no 3 Marol Andheri Kurla road<br>
+        Andheri East 400059</p>
+      </div>
+      <div class="info-item">
+        <strong>📧 Email:</strong>
+        <p><a href="mailto:els&#64;els-india.com">els&#64;els-india.com</a></p>
+      </div>
+      <div class="info-item">
+        <strong>📞 Phone:</strong>
+        <p><a href="tel:+918657044113">+91 8657044113</a></p>
+      </div>
+    </div>
+
+    <div class="contact-form-section">
+      <h2>Send us a Message</h2>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" formControlName="name" placeholder="Your Name" class="form-input">
+          </div>
+          <div class="form-group">
+            <input type="email" formControlName="email" placeholder="Your Email" class="form-input">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" formControlName="phone" placeholder="Phone Number" class="form-input">
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="subject" placeholder="Subject" class="form-input">
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea formControlName="message" placeholder="Your Message" rows="5" class="form-input"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+      
+      <div *ngIf="submitted" class="success-message">
+        ✓ Thank you! Your message has been sent successfully.
+      </div>
+    </div>
+  </div>
+</div>
+

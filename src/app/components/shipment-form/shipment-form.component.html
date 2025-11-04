@@ -1,0 +1,94 @@
+<div class="shipment-form-container">
+  <!-- Hello World Test -->
+  <div style="background: #4D148C; color: white; padding: 20px; text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 20px;">
+    Shipment Form Loaded!
+  </div>
+
+  <!-- FedEx Logo Header -->
+  <div class="header">
+    <div class="fedex-logo">
+      <span class="fed">Fed</span><span class="ex">Ex</span>
+    </div>
+  </div>
+
+  <!-- Shipment Form -->
+  <form [formGroup]="shipmentForm" (ngSubmit)="onSubmit()" class="shipment-form">
+    <!-- Sender Information Section -->
+    <div class="form-section">
+      <h2 class="section-title">Sender Information</h2>
+      <div class="form-grid">
+        <div class="form-field full-width">
+          <input type="text" formControlName="senderName" placeholder="Name" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="tel" formControlName="senderPhone" placeholder="Phone" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="text" formControlName="senderAddress" placeholder="Address" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="text" formControlName="senderCity" placeholder="City" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="text" formControlName="senderPostalCode" placeholder="Postal Code" class="form-input">
+        </div>
+        <div class="form-field full-width">
+          <input type="text" formControlName="senderCountry" placeholder="Country" class="form-input">
+        </div>
+      </div>
+    </div>
+
+    <!-- Receiver Information Section -->
+    <div class="form-section">
+      <h2 class="section-title">Receiver Information</h2>
+      <div class="form-grid">
+        <div class="form-field full-width">
+          <input type="text" formControlName="receiverName" placeholder="Name" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="tel" formControlName="receiverPhone" placeholder="Phone" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="text" formControlName="receiverAddress" placeholder="Address" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="text" formControlName="receiverCity" placeholder="City" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="text" formControlName="receiverPostalCode" placeholder="Postal Code" class="form-input">
+        </div>
+      </div>
+    </div>
+
+    <!-- Package Details Section -->
+    <div class="form-section">
+      <h2 class="section-title">Package Details</h2>
+      <div class="form-grid">
+        <div class="form-field">
+          <input type="number" formControlName="weight" placeholder="Weight" class="form-input">
+        </div>
+        <div class="form-field">
+          <input type="text" formControlName="dimensions" placeholder="Dimensions" class="form-input">
+        </div>
+        <div class="form-field">
+          <select formControlName="serviceType" class="form-input form-select">
+            <option value="">Service Type</option>
+            <option value="standard">Standard</option>
+            <option value="express">Express</option>
+            <option value="overnight">Overnight</option>
+            <option value="economy">Economy</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <input type="date" formControlName="pickupDate" placeholder="Pickup Date" class="form-input">
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="form-actions">
+      <button type="submit" class="btn-submit">SUBMIT</button>
+      <button type="button" (click)="onReset()" class="btn-reset">RESET</button>
+    </div>
+  </form>
+</div>

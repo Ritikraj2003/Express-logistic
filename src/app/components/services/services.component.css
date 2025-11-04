@@ -1,0 +1,126 @@
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.services-header h1 {
+  color: #4D148C;
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.services-header p {
+  color: #666;
+  font-size: 18px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.service-detail-card {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  scroll-margin-top: 100px;
+}
+
+.service-detail-card.highlight {
+  animation: highlightPulse 2s ease;
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.4);
+}
+
+@keyframes highlightPulse {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: rgba(0, 102, 204, 0.1);
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+.service-icon-large {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.service-detail-card h2 {
+  color: #4D148C;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.service-description {
+  color: #666;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.service-features {
+  background: #f5f5f5;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.service-features h3 {
+  color: #4D148C;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.service-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-features li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #333;
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4D148C;
+  font-weight: bold;
+}
+
+.btn-enquiry {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #4D148C;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-enquiry:hover {
+  background-color: #3a0f6a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(77, 20, 140, 0.4);
+}
+
