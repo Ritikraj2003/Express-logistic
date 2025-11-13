@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-shipment-form',
@@ -9,7 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ShipmentFormComponent implements OnInit {
   shipmentForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private notificationService: NotificationService,
+    private modalService: NgbModal
+  ) {
     console.log('Hello World - ShipmentFormComponent initialized!');
     this.shipmentForm = this.fb.group({
       // Sender Information
@@ -42,6 +48,12 @@ export class ShipmentFormComponent implements OnInit {
   onSubmit(): void {
     if (this.shipmentForm.valid) {
       console.log('Form submitted:', this.shipmentForm.value);
+      // Show success notification
+      this.notificationService.success(
+        'Shipment form submitted successfully!',
+        'Success',
+        5000
+      );
       // Reset form after successful submission
       this.shipmentForm.reset();
       // Reset validation state
@@ -50,6 +62,12 @@ export class ShipmentFormComponent implements OnInit {
       });
     } else {
       console.log('Form is invalid');
+      // Show error notification
+      this.notificationService.error(
+        'Please fill in all required fields.',
+        'Validation Error',
+        5000
+      );
       Object.keys(this.shipmentForm.controls).forEach(key => {
         this.shipmentForm.get(key)?.markAsTouched();
       });

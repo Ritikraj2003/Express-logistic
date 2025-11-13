@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ title }}</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+  <div class="modal-image-container" *ngIf="imageUrl">
+    <img [src]="imageUrl" [alt]="title" class="modal-image">
+  </div>
+  <div class="modal-content">
+    <p>{{ content }}</p>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+</div>
+

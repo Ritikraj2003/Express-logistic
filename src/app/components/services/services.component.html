@@ -1,24 +1,89 @@
 <div class="services-container">
-  <div class="services-header">
-    <h1>Our Services</h1>
-    <p>Comprehensive logistics solutions for all your shipping needs</p>
+  <!-- Hero Section -->
+  <div class="services-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-company">Express Logistics.</h1>
+      <h2 class="hero-tagline">Efficient Logistics Solutions</h2>
+    </div>
   </div>
 
-  <div class="services-list">
-    <div *ngFor="let service of services" [id]="service.id" class="service-detail-card">
-      <div class="service-icon-large">{{ service.icon }}</div>
-      <h2>{{ service.title }}</h2>
-      <p class="service-description">{{ service.description }}</p>
-      
-      <div class="service-features">
-        <h3>Key Features:</h3>
-        <ul>
-          <li *ngFor="let feature of service.features">{{ feature }}</li>
-        </ul>
+  <!-- Services Cards Section -->
+  <div class="services-cards-section">
+    <div class="services-header">
+      <h2 class="services-heading">Our Services</h2>
+      <p class="services-intro">
+        We offer a comprehensive suite of freight solutions tailored to meet your unique supply chain needs. Whether you require the speed of air freight, the economy of sea freight, or our all-inclusive door-to-door service, our expert team is here to manage your logistics with precision and care. Explore our services below to find the perfect fit for your cargo.
+      </p>
+    </div>
+    <div class="services-list">
+      <!-- Air Freight Card -->
+      <div id="air-freight" class="service-card" (click)="openServiceModal('air-freight', serviceModal)">
+        <div class="service-icon">✈️</div>
+        <h3 class="service-title">Air Freight Services</h3>
+        <p class="service-features-text">Time-critical delivery | High volume handling | Best carrier selection | Global network</p>
+        <button class="service-btn" (click)="openServiceModal('air-freight', serviceModal); $event.stopPropagation()">Get More Information</button>
       </div>
-      
-      <a routerLink="/contact" class="btn-enquiry">Enquiry Now</a>
+
+      <!-- Door-to-Door Freight Card -->
+      <div id="road-freight" class="service-card" (click)="openServiceModal('door-to-door', serviceModal)">
+        <div class="service-icon">🚚</div>
+        <h3 class="service-title">Door-to-Door Freight Services</h3>
+        <p class="service-features-text">Flexible scheduling | Route optimization | Regional coverage | Cost-effective</p>
+        <button class="service-btn" (click)="openServiceModal('door-to-door', serviceModal); $event.stopPropagation()">Get More Information</button>
+      </div>
+
+      <!-- Sea Freight Card -->
+      <div id="ocean-freight" class="service-card" (click)="openServiceModal('sea-freight', serviceModal)">
+        <div class="service-icon">🚢</div>
+        <h3 class="service-title">Sea Freight Services</h3>
+        <p class="service-features-text">FCL & LCL options | Door to door service | Worldwide coverage | Flexible scheduling</p>
+        <button class="service-btn" (click)="openServiceModal('sea-freight', serviceModal); $event.stopPropagation()">Get More Information</button>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Dynamic Service Modal -->
+<ng-template #serviceModal let-modal>
+  <div class="modal-header service-modal-header" *ngIf="selectedService">
+    <div class="modal-header-content">
+      <div class="modal-icon">{{ selectedService.icon }}</div>
+      <h4 class="modal-title">{{ selectedService.title }}</h4>
+    </div>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body service-modal-body" *ngIf="selectedService">
+    <div class="modal-image-section">
+      <img [src]="selectedService.image" [alt]="selectedService.title" class="modal-hero-image">
+    </div>
+
+    <div class="modal-intro">
+      <p>{{ selectedService.intro }}</p>
+    </div>
+
+    <div class="modal-services-section">
+      <p>{{ selectedService.servicesSection }}</p>
+    </div>
+
+    <div class="modal-why-choose">
+      <h5 class="why-choose-title">{{ selectedService.capabilitiesTitle }}</h5>
+      <ul class="features-list">
+        <li *ngFor="let capability of selectedService.capabilities">
+          <span class="feature-icon">✓</span> {{ capability }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal-closing">
+      <ng-container *ngFor="let closingText of selectedService.closing; let last = last">
+        <p *ngIf="!last">{{ closingText }}</p>
+        <p *ngIf="last" class="closing-highlight">{{ closingText }}</p>
+      </ng-container>
+    </div>
+  </div>
+  <div class="modal-footer service-modal-footer" *ngIf="selectedService">
+    <button type="button" class="btn-modal-close" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
 

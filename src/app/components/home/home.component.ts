@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '../../services/notification.service';
 
 interface Slide {
   image: string;
@@ -22,7 +23,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('aboutSection') aboutSection!: ElementRef;
   @ViewChild('servicesSection') servicesSection!: ElementRef;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private notificationService: NotificationService
+  ) {
     this.enquiryForm = this.fb.group({
       name: [''],
       email: [''],
@@ -136,8 +139,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onEnquirySubmit(): void {
+    debugger;
     if (this.enquiryForm.valid) {
       console.log('Enquiry Form Data:', this.enquiryForm.value);
+      // Show success notification
+      this.notificationService.success(
+        'Enquiry form submitted successfully!',
+        'Success',
+        5000
+      );
       // Reset form after submission
       this.enquiryForm.reset();
     } else {

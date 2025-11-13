@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,10 +13,11 @@ import { ShipmentFormComponent } from './components/shipment-form/shipment-form.
 import { ShipmentTrackingComponent } from './components/shipment-tracking/shipment-tracking.component';
 import { ServicesComponent } from './components/services/services.component';
 import { AboutComponent } from './components/about/about.component';
+import { AboutDetailModalComponent } from './components/about/about-detail-modal.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './shared/loader/loader.component';
-import { AlertComponent } from './shared/alert/alert.component';
+import { NotificationComponent } from './shared/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -25,16 +28,19 @@ import { AlertComponent } from './shared/alert/alert.component';
     ShipmentTrackingComponent,
     ServicesComponent,
     AboutComponent,
+    AboutDetailModalComponent,
     ContactComponent,
     FooterComponent,
     LoaderComponent,
-    AlertComponent
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
