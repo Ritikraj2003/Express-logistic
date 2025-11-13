@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,8 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactComponent {
   contactForm: FormGroup;
   submitted = false;
+  loading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private emailService: EmailService
+  ) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -22,12 +27,28 @@ export class ContactComponent {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      console.log('Contact form submitted:', this.contactForm.value);
-      this.submitted = true;
-      this.contactForm.reset();
-      setTimeout(() => {
-        this.submitted = false;
-      }, 3000);
+      this.loading = true;
+      const formValue = this.contactForm.value;
+      
+      this.emailService.sendEmail({
+        name: formValue.name,
+        email: formValue.email,
+        phone: formValue.phone,
+        subject: formValue.subject,
+        message: formValue.message
+      })
+      .then(() => {
+        this.submitted = true;
+        this.contactForm.reset();
+        this.loading = false;
+        setTimeout(() => {
+          this.submitted = false;
+        }, 3000);
+      })
+      .catch((error) => {
+        this.loading = false;
+        alert('Failed to send email. Please try again.');
+      });
     }
   }
 }

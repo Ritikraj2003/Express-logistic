@@ -45,7 +45,9 @@
         <div class="form-group">
           <textarea formControlName="message" placeholder="Your Message" rows="5" class="form-input"></textarea>
         </div>
-        <button type="submit" class="btn-submit">Submit</button>
+        <button type="submit" class="btn-submit" [disabled]="loading">
+          {{ loading ? 'Sending...' : 'Submit' }}
+        </button>
       </form>
       
       <div *ngIf="submitted" class="success-message">
