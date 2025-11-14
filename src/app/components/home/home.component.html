@@ -80,6 +80,59 @@
     </div>
   </section>
 
+  <!-- Trusted By Section -->
+  <section class="trusted-by-section">
+    <div class="trusted-by-container">
+      <h2 class="trusted-by-heading">Trusted By Leading Global Businesses</h2>
+      <p class="trusted-by-description">Our logistics services are trusted by importers, exporters, manufacturers, e-commerce companies, and machinery distributors worldwide.</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">10+ Years</div>
+          <div class="stat-label">Industry Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5,000+</div>
+          <div class="stat-label">Shipments Delivered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Global Shipping Partners</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="testimonials-container">
+      <h2 class="testimonials-heading">What our clients say</h2>
+      <div class="testimonial-card-wrapper">
+        <div class="testimonial-card" *ngFor="let testimonial of testimonials; let i = index" 
+             [class.active]="currentTestimonial === i">
+          <div class="testimonial-content">
+            <div class="testimonial-image-wrapper">
+              <img [src]="testimonial.image" [alt]="testimonial.author" class="testimonial-image">
+            </div>
+            <div class="testimonial-text">
+              <p class="testimonial-quote">{{ testimonial.quote }}</p>
+              <p class="testimonial-author">— {{ testimonial.author }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-indicators">
+        <span *ngFor="let testimonial of testimonials; let i = index" 
+              class="testimonial-dot" 
+              [class.active]="currentTestimonial === i"
+              (click)="goToTestimonial(i)"></span>
+      </div>
+    </div>
+  </section>
+
   <!-- Enquiry Form Section -->
   <section class="enquiry-section">
     <div class="enquiry-container">
@@ -142,6 +195,25 @@
             <button type="submit" class="btn-submit-now">SUBMIT NOW</button>
           </div>
         </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <h2 class="faq-heading">Frequently Asked Questions</h2>
+      <p class="faq-subtitle">Find answers to common questions about our logistics and freight services</p>
+      <div class="faq-list">
+        <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+          <div class="faq-question" (click)="toggleFaq(i)">
+            <span class="faq-question-text">{{ faq.question }}</span>
+            <span class="faq-icon" [class.active]="faq.isOpen">+</span>
+          </div>
+          <div class="faq-answer" [class.active]="faq.isOpen">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
