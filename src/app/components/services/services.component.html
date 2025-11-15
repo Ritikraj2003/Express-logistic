@@ -78,7 +78,7 @@
     <div class="modal-closing">
       <ng-container *ngFor="let closingText of selectedService.closing; let last = last">
         <p *ngIf="!last">{{ closingText }}</p>
-        <p *ngIf="last" class="closing-highlight">{{ closingText }}</p>
+        <p *ngIf="last" class="closing-highlight color_white">{{ closingText }}</p>
       </ng-container>
     </div>
   </div>

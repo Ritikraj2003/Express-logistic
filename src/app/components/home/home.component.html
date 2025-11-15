@@ -31,7 +31,7 @@
 
   <!-- About Us Section -->
   <section class="about-us-section" #aboutSection>
-    <div class="about-container">
+    <div class="container">
       <h2 class="about-title">About Us</h2>
       <div class="about-content-wrapper">
         <div class="about-image" [class.animate-in]="isAboutVisible">
@@ -51,38 +51,40 @@
 
   <!-- Services Overview -->
   <section class="services-overview" #servicesSection>
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card" [class.animate-left]="isServicesVisible">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600" alt="Air Freight">
+   <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card" [class.animate-left]="isServicesVisible">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600" alt="Air Freight">
+          </div>
+          <h3>Air Freight</h3>
+          <p>Avail of our airport-to-airport service which is ideally suited to customers with a high volume of business requiring time-critical delivery. We provide air freight services based on your needs and schedules and even select the most appropriate carrier for your shipment giving you a head start over other air freight forwarding companies.</p>
         </div>
-        <h3>Air Freight</h3>
-        <p>Avail of our airport-to-airport service which is ideally suited to customers with a high volume of business requiring time-critical delivery. We provide air freight services based on your needs and schedules and even select the most appropriate carrier for your shipment giving you a head start over other air freight forwarding companies.</p>
-      </div>
-      <div class="service-card" [class.animate-bottom]="isServicesVisible">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=600" alt="Sea Freight">
+        <div class="service-card" [class.animate-bottom]="isServicesVisible">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=600" alt="Sea Freight">
+          </div>
+          <h3>Sea Freight</h3>
+          <p>Our Sea carriers are available to meet the challenges and deadlines of your overseas shipping itinerary, whether it be automobiles or motorcycles shipping for individuals or shows. We can ship FCL (full container load) or LCL (less than container load) shipment anywhere in the world - door to door.</p>
         </div>
-        <h3>Sea Freight</h3>
-        <p>Our Sea carriers are available to meet the challenges and deadlines of your overseas shipping itinerary, whether it be automobiles or motorcycles shipping for individuals or shows. We can ship FCL (full container load) or LCL (less than container load) shipment anywhere in the world - door to door.</p>
-      </div>
-      <div class="service-card" [class.animate-right]="isServicesVisible">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" alt="Door To Door Freight">
+        <div class="service-card" [class.animate-right]="isServicesVisible">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" alt="Door To Door Freight">
+          </div>
+          <h3>Door To Door Freight</h3>
+          <p>It includes all shipping, handling, import and customs duties, making it a hassle-free option for customers to import goods. This is compared to standard shipping, the price of which typically includes only the expenses incurred by the shipping company in transferring the object from one place to another.</p>
         </div>
-        <h3>Door To Door Freight</h3>
-        <p>It includes all shipping, handling, import and customs duties, making it a hassle-free option for customers to import goods. This is compared to standard shipping, the price of which typically includes only the expenses incurred by the shipping company in transferring the object from one place to another.</p>
       </div>
-    </div>
-    <div class="view-more-container">
-      <a routerLink="/services" class="btn-view-more">VIEW MORE</a>
-    </div>
+      <div class="view-more-container">
+        <a routerLink="/services" class="btn-view-more">VIEW MORE</a>
+      </div>
+   </div>
   </section>
 
   <!-- Trusted By Section -->
   <section class="trusted-by-section">
-    <div class="trusted-by-container">
+    <div class="container">
       <h2 class="trusted-by-heading">Trusted By Leading Global Businesses</h2>
       <p class="trusted-by-description">Our logistics services are trusted by importers, exporters, manufacturers, e-commerce companies, and machinery distributors worldwide.</p>
       <div class="stats-grid">
@@ -108,7 +110,7 @@
 
   <!-- Testimonials Section -->
   <section class="testimonials-section">
-    <div class="testimonials-container">
+    <div class="container">
       <h2 class="testimonials-heading">What our clients say</h2>
       <div class="testimonial-card-wrapper">
         <div class="testimonial-card" *ngFor="let testimonial of testimonials; let i = index" 
@@ -135,14 +137,14 @@
 
   <!-- Enquiry Form Section -->
   <section class="enquiry-section">
-    <div class="enquiry-container">
+    <div class="container">
       <div class="enquiry-header">
         <h2>ENQUIRY NOW</h2>
       </div>
       <div class="enquiry-form-container">
         <form [formGroup]="enquiryForm" (ngSubmit)="onEnquirySubmit()" class="enquiry-form">
-          <div class="form-row">
-            <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 form-group">
               <input 
                 type="text" 
                 formControlName="name" 
@@ -151,7 +153,7 @@
               >
               <span class="input-icon">👤</span>
             </div>
-            <div class="form-group">
+            <div class="col-md-6 form-group">
               <input 
                 type="email" 
                 formControlName="email" 
@@ -160,9 +162,9 @@
               >
               <span class="input-icon">✉</span>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
+          
+         
+            <div class="col-md-6 form-group">
               <input 
                 type="tel" 
                 formControlName="phone" 
@@ -171,7 +173,7 @@
               >
               <span class="input-icon">📞</span>
             </div>
-            <div class="form-group">
+            <div class="col-md-6 form-group">
               <input 
                 type="text" 
                 formControlName="subject" 
@@ -180,9 +182,8 @@
               >
               <span class="input-icon">📄</span>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group full-width">
+
+            <div class="col-md-12 form-group full-width">
               <textarea 
                 formControlName="message" 
                 placeholder="YOUR MESSAGE *" 
@@ -201,7 +202,7 @@
 
   <!-- FAQ Section -->
   <section class="faq-section">
-    <div class="faq-container">
+    <div class="container">
       <h2 class="faq-heading">Frequently Asked Questions</h2>
       <p class="faq-subtitle">Find answers to common questions about our logistics and freight services</p>
       <div class="faq-list">
