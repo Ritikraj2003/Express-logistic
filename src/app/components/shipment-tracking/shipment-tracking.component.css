@@ -10,7 +10,7 @@
 }
 
 .tracking-header h1 {
-  color: #4D148C;
+  color: #EF3239;
   font-size: 36px;
   margin-bottom: 10px;
 }
@@ -60,13 +60,13 @@
 .form-input:focus,
 .form-select:focus {
   outline: none;
-  border-color: #4D148C;
-  box-shadow: 0 0 0 2px rgba(77, 20, 140, 0.1);
+  border-color: #EF3239;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
 }
 
 .btn-track {
   padding: 12px 30px;
-  background-color: #4D148C;
+  background-color: #EF3239;  
   color: white;
   border: none;
   border-radius: 4px;
@@ -77,9 +77,9 @@
 }
 
 .btn-track:hover {
-  background-color: #3a0f6a;
+  background-color: #EF3239;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(77, 20, 140, 0.3);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
 }
 
 .tracking-result {
@@ -90,7 +90,7 @@
 }
 
 .tracking-result h2 {
-  color: #4D148C;
+  color: #EF3239;
   margin-bottom: 20px;
 }
 
@@ -104,7 +104,7 @@
 .status-badge {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #4D148C;
+  background-color: #EF3239;
   color: white;
   border-radius: 20px;
   font-weight: 600;
@@ -112,7 +112,7 @@
 }
 
 .status-badge.in-transit {
-  background-color: #FF6600;
+  background-color: #42449D;
 }
 
 .status-card p {
@@ -149,9 +149,9 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #4D148C;
+  background: #EF3239;
   border: 2px solid white;
-  box-shadow: 0 0 0 2px #4D148C;
+  box-shadow: 0 0 0 2px #EF3239;
 }
 
 .timeline-date {
@@ -161,7 +161,7 @@
 }
 
 .timeline-content strong {
-  color: #4D148C;
+  color: #EF3239;
   display: block;
   margin-bottom: 5px;
 }

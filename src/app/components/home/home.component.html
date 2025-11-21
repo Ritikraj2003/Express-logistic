@@ -32,16 +32,33 @@
   <!-- About Us Section -->
   <section class="about-us-section" #aboutSection>
     <div class="container">
-      <h2 class="about-title">About Us</h2>
+      <h2 class="about-title">About UXB</h2>
       <div class="about-content-wrapper">
-        <div class="about-image" [class.animate-in]="isAboutVisible">
-          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800" alt="Express Logistics Solutions">
+        <div class="about-image-slider" [class.animate-in]="isAboutVisible">
+          <div class="about-slider-container">
+            <div *ngFor="let slide of aboutSlides; let i = index" 
+                 class="about-slide" 
+                 [class.active]="i === currentAboutSlideIndex">
+              <img [src]="slide" [alt]="'Logistics Image ' + (i + 1)" class="about-slide-image">
+            </div>
+            <button class="about-slider-arrow about-slider-arrow-left" (click)="prevAboutSlide()">‹</button>
+            <button class="about-slider-arrow about-slider-arrow-right" (click)="nextAboutSlide()">›</button>
+          </div>
+          <div class="about-slider-indicators">
+            <span *ngFor="let slide of aboutSlides; let i = index" 
+                  class="about-indicator" 
+                  [class.active]="i === currentAboutSlideIndex"
+                  (click)="goToAboutSlide(i)"></span>
+          </div>
         </div>
         <div class="about-text" [class.animate-in]="isAboutVisible">
-          <h3>Express Logistics Solutions</h3>
+          <h3 class="about-company-title"> UXB Express West UK LTD</h3>
           <p class="about-description">
             <span class="checkmark">✔</span>
-            "Express Logistics Solutions" As An International Freight Forwarder And Global Providers Of Innovative And Fully Integrated Supply Chain Solutions.
+            "UXB Express West UK LTD" As An International Freight Forwarder And Global Providers Of Innovative And Fully Integrated Supply Chain Solutions.
+          </p>
+          <p class="about-additional-text">
+            With over a decade of industry experience, we have been consistently supporting the supply chain needs of businesses across various sectors, pioneering the future of logistics.
           </p>
           <a routerLink="/about" class="btn-read-more">READ MORE</a>
         </div>
@@ -56,28 +73,28 @@
       <div class="services-grid">
         <div class="service-card" [class.animate-left]="isServicesVisible">
           <div class="service-image">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600" alt="Air Freight">
+            <img src="assets/Image/Air_Freight.jpeg" alt="Air Freight">
           </div>
           <h3>Air Freight</h3>
           <p>Avail of our airport-to-airport service which is ideally suited to customers with a high volume of business requiring time-critical delivery. We provide air freight services based on your needs and schedules and even select the most appropriate carrier for your shipment giving you a head start over other air freight forwarding companies.</p>
         </div>
         <div class="service-card" [class.animate-bottom]="isServicesVisible">
           <div class="service-image">
-            <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=600" alt="Sea Freight">
+            <img src="assets/Image/Sea_Freight.jpeg" alt="Sea Freight">
           </div>
           <h3>Sea Freight</h3>
           <p>Our Sea carriers are available to meet the challenges and deadlines of your overseas shipping itinerary, whether it be automobiles or motorcycles shipping for individuals or shows. We can ship FCL (full container load) or LCL (less than container load) shipment anywhere in the world - door to door.</p>
         </div>
         <div class="service-card" [class.animate-right]="isServicesVisible">
           <div class="service-image">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" alt="Door To Door Freight">
+            <img src="assets/Image/Door_To_Door_Freight.jpeg" alt="Door To Door Freight">
           </div>
           <h3>Door To Door Freight</h3>
           <p>It includes all shipping, handling, import and customs duties, making it a hassle-free option for customers to import goods. This is compared to standard shipping, the price of which typically includes only the expenses incurred by the shipping company in transferring the object from one place to another.</p>
         </div>
       </div>
       <div class="view-more-container">
-        <a routerLink="/services" class="btn-view-more">VIEW MORE</a>
+        <a routerLink="/services" class="btn-read-more">VIEW MORE</a>
       </div>
    </div>
   </section>
@@ -193,7 +210,12 @@
             </div>
           </div>
           <div class="submit-container">
-            <button type="submit" class="btn-submit-now">SUBMIT NOW</button>
+            <button type="submit" class="btn-submit-now" [disabled]="enquiryLoading">
+              {{ enquiryLoading ? 'SENDING...' : 'SUBMIT NOW' }}
+            </button>
+          </div>
+          <div *ngIf="enquirySubmitted" class="success-message">
+            Thank you! Your enquiry has been submitted successfully.
           </div>
         </form>
       </div>

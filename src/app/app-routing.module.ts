@@ -8,6 +8,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
+  
   { path: '', component: HomeComponent },
   { path: 'shipment-form', component: ShipmentFormComponent },
   { path: 'tracking', component: ShipmentTrackingComponent },

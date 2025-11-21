@@ -3,7 +3,7 @@
   <div class="services-hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1 class="hero-company">Express Logistics.</h1>
+      <h1 class="hero-company">UXB Express West UK LTD</h1>
       <h2 class="hero-tagline">Efficient Logistics Solutions</h2>
     </div>
   </div>
@@ -51,7 +51,9 @@
       <div class="modal-icon">{{ selectedService.icon }}</div>
       <h4 class="modal-title">{{ selectedService.title }}</h4>
     </div>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <img src="assets/Image/close.png" alt="Close" class="close-icon">
+    </button>
   </div>
   <div class="modal-body service-modal-body" *ngIf="selectedService">
     <div class="modal-image-section">

@@ -3,16 +3,32 @@
   <div class="hero-section">
     <div class="hero-content">
       <div class="hero-left">
-        <h1 class="hero-heading">
-          <span class="hero-word">Delivering</span>
-          <span class="hero-word">Beyond</span>
-          <span class="hero-word">Boundaries</span>
-        </h1>
-        <p class="hero-subtitle">Reliable Air, Sea & Door-to-Door Logistics Worldwide.</p>
-        <button class="btn-get-in-touch" (click)="navigateToContact()">Get in Touch</button>
+        <div class="tagline-container">
+          <h1 class="hero-heading">
+            <span *ngFor="let word of currentTagline.words" class="hero-word">{{ word }}</span>
+          </h1>
+          <p class="hero-subtitle">{{ currentTagline.subtitle }}</p>
+          <button class="btn-get-in-touch" (click)="navigateToContact()">Get in Touch</button>
+        </div>
       </div>
       <div class="hero-right">
-        <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1920" alt="Logistics" class="hero-image">
+        <div class="image-slider">
+          <div class="slider-container">
+            <div *ngFor="let slide of slides; let i = index" 
+                 class="slide" 
+                 [class.active]="i === currentSlideIndex">
+              <img [src]="slide" [alt]="'Logistics Image ' + (i + 1)" class="hero-image">
+            </div>
+            <button class="slider-arrow slider-arrow-left" (click)="prevSlide()">‹</button>
+            <button class="slider-arrow slider-arrow-right" (click)="nextSlide()">›</button>
+          </div>
+          <div class="slider-indicators">
+            <span *ngFor="let slide of slides; let i = index" 
+                  class="indicator" 
+                  [class.active]="i === currentSlideIndex"
+                  (click)="goToSlide(i)"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -21,10 +37,10 @@
     <div class="about-inner-content">
       <h2 class="about-heading">About</h2>
       <p class="about-description mb_0">
-        Express Logistics is an international freight forwarder and a global provider of modern, fully-integrated supply chain and logistics. With over a decade of industry experience. We have been consistently supporting the supply chain needs of businesses across various sectors, pioneering the future.
+        UXB Express West UK LTD is an international freight forwarder and a global provider of modern, fully-integrated supply chain and logistics. With over a decade of industry experience. We have been consistently supporting the supply chain needs of businesses across various sectors, pioneering the future.
       </p>
       <p class="about-description mb_0">
-        Express Logistics Solutions was established to deliver comprehensive freight services with greater reliability, speed, and cost-efficiency.
+        UXB Express West UK LTD was established to deliver comprehensive freight services with greater reliability, speed, and cost-efficiency.
       </p>
       <p class="about-description mb_0">
         Backed by our own warehouses, fleet network, and a dedicated team of logistics experts, we are capable of handling all types of freight shipments—offering true end-to-end logistics services. Our capabilities include freight forwarding, contract logistics, transportation management, warehousing, and distribution operations.
@@ -60,7 +76,7 @@
         </div>
       </div>
       <p class="about-description about-commitment">
-        At Express Logistics Solutions, our commitment is to deliver timely, safe, and strategic logistics support that empowers businesses to grow efficiently and reach their markets seamlessly.
+        At UXB Express West UK LTD, our commitment is to deliver timely, safe, and strategic logistics support that empowers businesses to grow efficiently and reach their markets seamlessly.
       </p>
     </div>
   </div>

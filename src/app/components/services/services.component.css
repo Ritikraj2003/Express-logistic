@@ -8,7 +8,7 @@
   position: relative;
   width: 100%;
   height: 450px; /* Fixed height: 450px for desktop */
-  background-image: url('https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1920');
+  background-image: url('../../../assets/Image/Our_Services.jpeg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -37,9 +37,9 @@
 }
 
 .hero-company {
-  font-size: 36px;
+  font-size: 65px;
   font-weight: 600;
-  color: #87CEEB;
+  color: white;
   margin: 0 0 10px 0;
   font-family: 'Arial', sans-serif;
 }
@@ -69,7 +69,7 @@
 .services-heading {
   font-size: 42px;
   font-weight: 700;
-  color: #333;
+  color: #EF3239;
   margin: 0 0 20px 0;
   font-family: 'Arial', sans-serif;
 }
@@ -155,7 +155,7 @@
 .service-btn {
   width: 100%;
   padding: 12px 20px;
-  background-color: #87CEEB;
+  background-color: #DC2626;
   color: white;
   border: none;
   border-radius: 8px;
@@ -167,7 +167,7 @@
 }
 
 .service-btn:hover {
-  background-color: #6BB6D6;
+  background-color: #B91C1C;
   transform: translateY(-2px);
 }
 
@@ -224,7 +224,7 @@
 
 /* Service Modal Styles */
 .service-modal-header {
-  background: linear-gradient(135deg, #0066CC 0%, #004d99 100%);
+  background: linear-gradient(135deg, #42449D 0%, #004d99 100%);
   color: white;
   border-bottom: none;
   padding: 25px 30px;
@@ -267,6 +267,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.service-modal-header .btn-close .close-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 .service-modal-header .btn-close:hover {
@@ -310,7 +318,7 @@
   margin-bottom: 35px;
   padding: 25px;
   background: #f8f9fa;
-  border-left: 4px solid #0066CC;
+  border-left: 4px solid #42449D;
   border-radius: 6px;
 }
 
@@ -329,7 +337,7 @@
 .why-choose-title {
   font-size: 22px;
   font-weight: 700;
-  color: #0066CC;
+  color: #42449D;
   margin: 0 0 20px 0;
   padding-bottom: 10px;
   border-bottom: 2px solid #e0e0e0;
@@ -356,7 +364,7 @@
   position: absolute;
   left: 0;
   top: 2px;
-  background: #0066CC;
+  background: #42449D;
   color: white;
   width: 22px;
   height: 22px;
@@ -390,7 +398,7 @@
 
 .closing-highlight {
   display: block;
-  background: linear-gradient(135deg, #0066CC 0%, #004d99 100%);
+  background: linear-gradient(135deg, #42449D 0%, #004d99 100%);
   color: white;
   padding: 18px 25px;
   border-radius: 8px;
@@ -409,7 +417,7 @@
 }
 
 .btn-modal-close {
-  background: #0066CC;
+  background: #42449D;
   color: white;
   border: none;
   padding: 12px 35px;

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from '../../services/notification.service';
+import { EmailService } from '../../services/email.service';
 
 interface Slide {
   image: string;
@@ -29,16 +30,22 @@ interface FAQ {
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   currentSlide = 0;
   currentTestimonial = 0;
+  currentAboutSlideIndex = 0;
   private slideInterval: any;
   private testimonialInterval: any;
+  private aboutSlideInterval: any;
   isAboutVisible = false;
   isServicesVisible = false;
   enquiryForm: FormGroup;
+  enquiryLoading = false;
+  enquirySubmitted = false;
   @ViewChild('aboutSection') aboutSection!: ElementRef;
   @ViewChild('servicesSection') servicesSection!: ElementRef;
 
-  constructor(private fb: FormBuilder,
-              private notificationService: NotificationService
+  constructor(
+    private fb: FormBuilder,
+    private notificationService: NotificationService,
+    private emailService: EmailService
   ) {
     this.enquiryForm = this.fb.group({
       name: [''],
@@ -51,9 +58,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   slides: Slide[] = [
     {
-      image: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1920',
-      title: 'Express Logistics Solutions',
-      description: '"Express Logistics Solutions" As An International Freight Forwarder And Global Providers Of Innovative And Fully Integrated Supply Chain Solutions.',
+      image: 'assets/Image/HomePage2.jpg',
+      title: ' UXB Express West UK LTD',
+      description: '"UXB Express West UK LTD" As An International Freight Forwarder And Global Providers Of Innovative And Fully Integrated Supply Chain Solutions.',
       showText: true
     },
     {
@@ -72,7 +79,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   testimonials: Testimonial[] = [
     {
-      quote: 'Express Logistics Solutions has streamlined our entire supply chain. Fast, efficient, and reliable — saved us weeks on lead time.',
+      quote: ' UXB Express West UK LTD has streamlined our entire supply chain. Fast, efficient, and reliable — saved us weeks on lead time.',
       author: 'John M., Operations Director, UK Manufacturing',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces'
     },
@@ -86,6 +93,13 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       author: 'Michael R., CEO, Tech Solutions Inc.',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=faces'
     }
+  ];
+
+  aboutSlides = [
+    'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1920',
+    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920',
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920',
+    'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1920'
   ];
 
   faqs: FAQ[] = [
@@ -138,6 +152,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.startAutoSlide();
     // Start automatic testimonial rotation
     this.startAutoTestimonial();
+    // Start automatic about section slider
+    this.startAboutSlider();
   }
 
   ngAfterViewInit(): void {
@@ -152,6 +168,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     if (this.testimonialInterval) {
       clearInterval(this.testimonialInterval);
+    }
+    if (this.aboutSlideInterval) {
+      clearInterval(this.aboutSlideInterval);
     }
   }
 
@@ -244,20 +263,61 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
   }
 
+  startAboutSlider(): void {
+    this.aboutSlideInterval = setInterval(() => {
+      this.nextAboutSlide();
+    }, 4000); // Change slide every 4 seconds
+  }
+
+  nextAboutSlide(): void {
+    this.currentAboutSlideIndex = (this.currentAboutSlideIndex + 1) % this.aboutSlides.length;
+  }
+
+  prevAboutSlide(): void {
+    this.currentAboutSlideIndex = (this.currentAboutSlideIndex - 1 + this.aboutSlides.length) % this.aboutSlides.length;
+  }
+
+  goToAboutSlide(index: number): void {
+    this.currentAboutSlideIndex = index;
+  }
+
   onEnquirySubmit(): void {
-    debugger;
     if (this.enquiryForm.valid) {
-      console.log('Enquiry Form Data:', this.enquiryForm.value);
-      // Show success notification
-      this.notificationService.success(
-        'Enquiry form submitted successfully!',
-        'Success',
-        5000
-      );
-      // Reset form after submission
-      this.enquiryForm.reset();
+      this.enquiryLoading = true;
+      const formValue = this.enquiryForm.value;
+      
+      this.emailService.sendEmail({
+        name: formValue.name || '',
+        email: formValue.email || '',
+        phone: formValue.phone,
+        subject: formValue.subject,
+        message: formValue.message
+      })
+      .then(() => {
+        this.enquirySubmitted = true;
+        this.enquiryForm.reset();
+        this.enquiryLoading = false;
+        // Show success notification
+        this.notificationService.success(
+          'Enquiry form submitted successfully!',
+          'Success',
+          5000
+        );
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.enquirySubmitted = false;
+        }, 3000);
+      })
+      .catch((error) => {
+        this.enquiryLoading = false;
+        // Show error notification
+        this.notificationService.error(
+          'Failed to send enquiry. Please try again.',
+          'Error',
+          5000
+        );
+      });
     } else {
-      console.log('Form is invalid');
       // Mark all required fields as touched
       Object.keys(this.enquiryForm.controls).forEach(key => {
         const control = this.enquiryForm.get(key);

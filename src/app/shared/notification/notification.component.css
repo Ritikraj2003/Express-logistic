@@ -87,70 +87,70 @@
 
 /* Success Notification */
 .notification-success {
-  border-left-color: #10b981;
+  border-left-color: #42449D;
 }
 
 .notification-success .notification-icon {
-  background-color: #10b981;
+  background-color: #42449D;
 }
 
 .notification-success .notification-title {
-  color: #065f46;
+  color: #1E40AF;
 }
 
 .notification-success .notification-message {
-  color: #047857;
+  color: #1E3A8A;
 }
 
 /* Warning Notification */
 .notification-warning {
-  border-left-color: #f59e0b;
+  border-left-color: #DC2626;
 }
 
 .notification-warning .notification-icon {
-  background-color: #f59e0b;
+  background-color: #DC2626;
 }
 
 .notification-warning .notification-title {
-  color: #92400e;
+  color: #991B1B;
 }
 
 .notification-warning .notification-message {
-  color: #b45309;
+  color: #B91C1C;
 }
 
 /* Error Notification */
 .notification-error {
-  border-left-color: #ef4444;
+  border-left-color: #DC2626;
 }
 
 .notification-error .notification-icon {
-  background-color: #ef4444;
+  background-color: #DC2626;
 }
 
 .notification-error .notification-title {
-  color: #991b1b;
+  color: #991B1B;
 }
 
 .notification-error .notification-message {
-  color: #dc2626;
+  color: #B91C1C;
 }
 
 /* Failed Notification */
 .notification-failed {
-  border-left-color: #8b5cf6;
+  border-left-color: #42449D;
 }
 
 .notification-failed .notification-icon {
-  background-color: #8b5cf6;
+  background-color: #42449D;
 }
 
 .notification-failed .notification-title {
-  color: #5b21b6;
+  color: #1E40AF;
 }
 
 .notification-failed .notification-message {
-  color: #6d28d9;
+  color: #1E3A8A;
 }
 
 /* Animation */

@@ -49,7 +49,7 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background-color: #0066CC;
+  background-color: #42449D;
 }
 
 .footer-section p {
@@ -87,7 +87,7 @@
 }
 
 .footer-section ul li a:hover {
-  color: #FFD700;
+  color: #DC2626;
 }
 
 .contact-info p {
@@ -113,11 +113,11 @@
 }
 
 .contact-info a:hover {
-  color: #FFD700;
+  color: #DC2626;
 }
 
 .footer-bottom {
-  background-color: #0066CC;
+  background-color: #42449D;
   padding: 20px;
   position: relative;
   z-index: 2;
@@ -145,7 +145,7 @@
   right: 30px;
   width: 50px;
   height: 50px;
-  background-color: #FFD700;
+  background-color: #42449D;
   color: white;
   border: none;
   border-radius: 4px;
@@ -160,9 +160,9 @@
 }
 
 .scroll-to-top:hover {
-  background-color: #FFC700;
+  /* background-color: #B91C1C;
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4); */
 }
 
 .scroll-to-top span {

@@ -10,7 +10,7 @@
 }
 
 .contact-header h1 {
-  color: #4D148C;
+  color: #EF3239;
   font-size: 42px;
   margin-bottom: 10px;
 }
@@ -34,7 +34,7 @@
 }
 
 .contact-info h2 {
-  color: #4D148C;
+  color: #EF3239;
   margin-bottom: 30px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .info-item strong {
-  color: #4D148C;
+  color: #42449D;
   display: block;
   margin-bottom: 8px;
   font-size: 16px;
@@ -56,12 +56,12 @@
 }
 
 .info-item a {
-  color: #4D148C;
+  color: #666;
   text-decoration: none;
 }
 
 .info-item a:hover {
-  color: #FF6600;
+  color: #B91C1C;
 }
 
 .contact-form-section {
@@ -72,7 +72,7 @@
 }
 
 .contact-form-section h2 {
-  color: #4D148C;
+  color: #EF3239;
   margin-bottom: 25px;
 }
 
@@ -99,8 +99,8 @@
 
 .form-input:focus {
   outline: none;
-  border-color: #4D148C;
-  box-shadow: 0 0 0 2px rgba(77, 20, 140, 0.1);
+  border-color: #EF3239;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
 }
 
 textarea.form-input {
@@ -111,7 +111,7 @@ textarea.form-input {
 .btn-submit {
   width: 100%;
   padding: 15px;
-  background-color: #4D148C;
+  background-color: #EF3239;
   color: white;
   border: none;
   border-radius: 4px;
@@ -122,15 +122,15 @@ textarea.form-input {
 }
 
 .btn-submit:hover {
-  background-color: #3a0f6a;
+  background-color: #EF3239;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(77, 20, 140, 0.3);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
 }
 
 .success-message {
   margin-top: 20px;
   padding: 15px;
-  background-color: #4caf50;
+  background-color: #42449D;
   color: white;
   border-radius: 4px;
   text-align: center;
