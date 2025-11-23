@@ -26,7 +26,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     'air-freight': {
       title: 'Air Freight Services',
       icon: '✈️',
-      image: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=800&h=400&fit=crop',
+      image: 'assets/Image/Air_Freight01.jpg',
       intro: 'Our Air Freight Solutions are designed for businesses that require fast, reliable, and time-critical delivery. With a strong global network and strategic partnerships with major airlines, we ensure your shipments move quickly, safely, and efficiently across international and domestic routes.',
       servicesSection: 'We offer airport-to-airport, door-to-door, and customized air cargo services tailored to your specific timelines and cargo requirements. Whether it\'s urgent manufacturing components, retail products, perishables, pharmaceuticals, or high-value cargo, our team ensures seamless coordination and end-to-end visibility throughout the journey.',
       capabilitiesTitle: 'Why Choose Our Air Freight Services?',
@@ -67,7 +67,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     'door-to-door': {
       title: 'Door-to-Door Freight Services',
       icon: '🚚',
-      image: 'https://images.unsplash.com/photo-1601581875036-c1922aaea8a2?w=800&h=400&fit=crop',
+      image: 'assets/Image/Door.jpg',
       intro: 'Our Door-to-Door Freight Solution is a complete end-to-end logistics service designed to make shipping simple, transparent, and stress-free for our customers. We handle every step of the shipping process—right from pick-up at the origin to final delivery at your destination.',
       servicesSection: 'This service covers transportation, documentation, customs clearance, duties, handling, warehousing, and final distribution, ensuring you don\'t have to coordinate with multiple vendors or deal with operational complexities.',
       capabilitiesTitle: 'What\'s Included in Our Door-to-Door Service?',

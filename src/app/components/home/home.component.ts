@@ -58,19 +58,19 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   slides: Slide[] = [
     {
-      image: 'assets/Image/HomePage2.jpg',
+      image: 'assets/Image/Homepage01.jpg',
       title: ' UXB Express West UK LTD',
       description: '"UXB Express West UK LTD" As An International Freight Forwarder And Global Providers Of Innovative And Fully Integrated Supply Chain Solutions.',
       showText: true
     },
     {
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920',
+      image: 'assets/Image/Homepage02.jpg',
       title: 'Global Shipping Network',
       description: 'Connecting businesses worldwide with reliable and efficient logistics solutions.',
       showText: false
     },
     {
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920',
+      image: 'assets/Image/Homepage03.jpg',
       title: 'Fast & Secure Delivery',
       description: 'Your cargo delivered safely and on time, anywhere in the world.',
       showText: false
